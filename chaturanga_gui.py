@@ -307,8 +307,6 @@ class ChessLLMGUI:
     def load_model(self):
         # Load Chaturanga-Nano model from HuggingFace with local fallback
         model_id = "DireDreadlord/Chaturanga-Nano"
-        if not os.path.exists(model_id) and os.path.exists("./suprachess-mini"):
-            model_id = "./suprachess-mini"
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
         if pre_tokenizers is not None and hasattr(self.tokenizer, "_tokenizer") and hasattr(self.tokenizer._tokenizer, "pre_tokenizer"):
